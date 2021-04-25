@@ -92,3 +92,4 @@ JVM的参数类型
     Java.lang.OutOfMemoryError:GC overhead limit exceeded
     Java.lang.OutOfMemoryError:Direct buffer memory
     Java.lang.OutOfMemoryError:unable to create new native thread
+    Java.lang.OutOfMemoryError:Metaspace
