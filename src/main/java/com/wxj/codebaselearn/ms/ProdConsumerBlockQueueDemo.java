@@ -1,8 +1,6 @@
 package com.wxj.codebaselearn.ms;
 
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -72,6 +70,22 @@ class MyResource {
 public class ProdConsumerBlockQueueDemo {
     public static void main(String[] args) throws Exception {
         MyResource myResource = new MyResource(new ArrayBlockingQueue(10));
+
+        /*ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(
+                2,
+                5,
+                2,
+                TimeUnit.SECONDS,
+                new ArrayBlockingQueue<>(10),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.AbortPolicy());
+
+        threadPoolExecutor.execute(()->{
+            System.out.println(Thread.currentThread().getName() + "\t生产线程启动");
+
+
+        });*/
+
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t生产线程启动");
             try {
