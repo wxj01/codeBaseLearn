@@ -1,0 +1,6 @@
+server:
+  port: 8888
+
+spring:
+  redis:
+    url: 192.168.181.128:6379
