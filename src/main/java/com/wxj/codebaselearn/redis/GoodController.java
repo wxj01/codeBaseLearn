@@ -1,5 +1,6 @@
 package com.wxj.codebaselearn.redis;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -25,7 +26,7 @@ public class GoodController {
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
 
-   public static final String REDIS_LOCK = "REDIS_LOCK";
+    public static final String REDIS_LOCK = "REDIS_LOCK";
 
 
     @GetMapping("/buy_goods")
@@ -58,7 +59,7 @@ public class GoodController {
         }finally {
             // del REDIS_LOCK
 //            stringRedisTemplate.delete(REDIS_LOCK);  删锁不安全，
-           // 用lua 脚本
+            // 用lua 脚本
 //             redis 事务  通过 watch  和 mutli  来完成
 
             while (true){
