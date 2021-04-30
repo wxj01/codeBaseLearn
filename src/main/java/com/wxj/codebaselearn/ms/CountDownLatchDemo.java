@@ -2,6 +2,7 @@ package com.wxj.codebaselearn.ms;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * @author wxj
@@ -41,6 +42,12 @@ public class CountDownLatchDemo {
         }
         countDownLatch.await();
         System.out.println(Thread.currentThread().getName() + "\t班长锁门离开教室");
+
+
+//        new Thread(()->{}).join(1000);
+//        LockSupport.park();
+//        LockSupport.parkUntil(100);
+//        LockSupport.parkNanos(100);
     }
 
 
