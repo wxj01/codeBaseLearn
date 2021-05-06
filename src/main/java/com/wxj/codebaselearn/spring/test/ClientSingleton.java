@@ -1,0 +1,13 @@
+package com.wxj.codebaselearn.spring.test;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+
+public class ClientSingleton {
+public static void main(String[] args) {
+    ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+
+    C bean = context.getBean(C.class);
+    }
+}
