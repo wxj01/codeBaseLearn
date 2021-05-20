@@ -12,10 +12,10 @@ import java.util.concurrent.TimeUnit;
 
 public class MyTest {
     public static void main(String[] args) {
-        // ´´½¨Ïß³Ì³Ø
+        // åˆ›å»ºçº¿ç¨‹æ± 
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(3, 5, 5, TimeUnit.SECONDS,
                 new ArrayBlockingQueue<Runnable>(3));
-        // ÏòÏß³Ì³ØÌá½»ÈÎÎñ
+        // å‘çº¿ç¨‹æ± æäº¤ä»»åŠ¡
 //        for (int i = 0; i < threadPool.getCorePoolSize(); i++) {
         for (int i = 1; i < 11; i++) {
             threadPool.execute(new Runnable() {
@@ -34,8 +34,8 @@ public class MyTest {
             });
         }
 
-        // ¹Ø±ÕÏß³Ì³Ø
-        threadPool.shutdown(); // ÉèÖÃÏß³Ì³ØµÄ×´Ì¬ÎªSHUTDOWN£¬È»ºóÖĞ¶ÏËùÓĞÃ»ÓĞÕıÔÚÖ´ĞĞÈÎÎñµÄÏß³Ì
-        // threadPool.shutdownNow(); // ÉèÖÃÏß³Ì³ØµÄ×´Ì¬ÎªSTOP£¬È»ºó³¢ÊÔÍ£Ö¹ËùÓĞµÄÕıÔÚÖ´ĞĞ»òÔİÍ£ÈÎÎñµÄÏß³Ì£¬²¢·µ»ØµÈ´ıÖ´ĞĞÈÎÎñµÄÁĞ±í£¬¸Ã·½·¨ÒªÉ÷ÓÃ£¬ÈİÒ×Ôì³É²»¿É¿ØµÄºó¹û
+        // å…³é—­çº¿ç¨‹æ± 
+        threadPool.shutdown(); // è®¾ç½®çº¿ç¨‹æ± çš„çŠ¶æ€ä¸ºSHUTDOWNï¼Œç„¶åä¸­æ–­æ‰€æœ‰æ²¡æœ‰æ­£åœ¨æ‰§è¡Œä»»åŠ¡çš„çº¿ç¨‹
+        // threadPool.shutdownNow(); // è®¾ç½®çº¿ç¨‹æ± çš„çŠ¶æ€ä¸ºSTOPï¼Œç„¶åå°è¯•åœæ­¢æ‰€æœ‰çš„æ­£åœ¨æ‰§è¡Œæˆ–æš‚åœä»»åŠ¡çš„çº¿ç¨‹ï¼Œå¹¶è¿”å›ç­‰å¾…æ‰§è¡Œä»»åŠ¡çš„åˆ—è¡¨ï¼Œè¯¥æ–¹æ³•è¦æ…ç”¨ï¼Œå®¹æ˜“é€ æˆä¸å¯æ§çš„åæœ
     }
 }
