@@ -1,10 +1,12 @@
-package com.wxj.codebaselearn.ms;
+package com.wxj.codebaselearn.blockingQueue;
 
 import java.util.LinkedList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  *  面试中第二次被问到
+ *
+ *  手写一个阻塞队列
  */
 public class MyBlockingQueue<T> {
 
