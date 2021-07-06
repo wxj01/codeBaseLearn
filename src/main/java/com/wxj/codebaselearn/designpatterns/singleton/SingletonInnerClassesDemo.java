@@ -1,4 +1,4 @@
-package com.wxj.codebaselearn.designpatterns;
+package com.wxj.codebaselearn.designpatterns.singleton;
 
 /**
  * @author wxj
