@@ -20,7 +20,6 @@ public class ThreadPrint {
         for (int i = 1;i <= 100;i+=2){
             System.out.println(i);
 
-            System.out.println(this);
             this.notify();
             try{
                 this.wait();
