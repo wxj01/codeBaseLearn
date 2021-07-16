@@ -11,5 +11,36 @@ package com.wxj.sortorder;
  * 递归地（recursive）把小于基准值元素的子数列和大于基准值元素的子数列排序；
  *
  */
-public class QuickSort{
+public class QuickSort {
+
+
+    private int[] quickSort(int[] arr,int left,int right){
+        if(left < right){
+            int partitionIndex = partition(arr,left,right);
+            quickSort(arr,left,partitionIndex-1);
+            quickSort(arr,partitionIndex+1,right);
+        }
+        return arr;
+    }
+
+    private int partition(int[] arr,int left,int right){
+        // 设置基准
+        int pivot = left;
+        int index = pivot + 1;
+        for (int i = index; i<= right;i++){
+            if (arr[i] < arr[pivot]){
+                swap(arr,i,index);
+                index++;
+            }
+        }
+
+        swap(arr,pivot,index-1);
+        return index -1;
+    }
+
+    private void swap(int[] arr, int i, int j) {
+        int temp = arr[i];
+        arr[j] = arr[i];
+        arr[i] = temp;
+    }
 }
