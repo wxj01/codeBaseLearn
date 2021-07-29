@@ -1,10 +1,10 @@
-//package com.wxj.codebaselearn.rabbitmq;
+//package com.wxj.codebaselearn.mq.rabbitmq;
 //
 //import org.springframework.beans.factory.annotation.Configurable;
 //import org.springframework.beans.factory.annotation.Qualifier;
 //import org.springframework.context.annotation.Bean;
+//import sun.misc.Queue;
 //
-//import javax.jms.Queue;
 //import javax.naming.Binding;
 //import java.util.HashMap;
 //import java.util.Map;

@@ -1,7 +1,14 @@
-//package com.wxj.codebaselearn.rabbitmq;
+//package com.wxj.codebaselearn.mq.rabbitmq;
 //
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.stereotype.Component;
+//import sun.plugin2.message.Message;
+//
+//import java.io.IOException;
+//import java.nio.channels.Channel;
+//
+//import static com.wxj.codebaselearn.mq.rabbitmq.RabbitMQConfig.BUSINESS_QUEUEA_NAME;
+//import static com.wxj.codebaselearn.mq.rabbitmq.RabbitMQConfig.BUSINESS_QUEUEB_NAME;
 //
 ///**
 // * @author wxj

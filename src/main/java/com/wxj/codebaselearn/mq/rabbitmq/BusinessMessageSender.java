@@ -1,4 +1,9 @@
-//package com.wxj.codebaselearn.rabbitmq;
+//package com.wxj.codebaselearn.mq.rabbitmq;
+//
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.stereotype.Component;
+//
+//import static com.wxj.codebaselearn.mq.rabbitmq.RabbitMQConfig.BUSINESS_EXCHANGE_NAME;
 //
 ///**
 // * @author wxj
