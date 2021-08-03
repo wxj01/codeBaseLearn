@@ -42,7 +42,7 @@ public class ExecutorServiceCalculator implements Calculator{
         @Override
         public Long call() throws Exception {
             long total = 0;
-            for (int i = from; i < to; i++) {
+            for (int i = from; i <= to; i++) {
                     total += numbers[i];
             }
             return total;
@@ -79,19 +79,17 @@ public class ExecutorServiceCalculator implements Calculator{
     }
 
 
-//    耗时：19 ms
-//    结果为：49999960000000
+//    耗时：16ms
+//    结果为：50000005000000
     public static void main(String[] args) {
         long[] numbers = LongStream.rangeClosed(1, 10000000).toArray();
+
         Instant start = Instant.now();
-
-        ExecutorServiceCalculator executorServiceCalculator = new ExecutorServiceCalculator();
-        long results = executorServiceCalculator.add(numbers);
-
+        Calculator calculator = new ExecutorServiceCalculator();
+        long result = calculator.add(numbers);
         Instant end = Instant.now();
+        System.out.println("耗时：" + Duration.between(start, end).toMillis() + "ms");
 
-        System.out.println("耗时："+ Duration.between(start,end).toMillis() + " ms ");
-
-        System.out.println("结果为："+results);
+        System.out.println("结果为：" + result); // 打印结果500500
     }
 }
