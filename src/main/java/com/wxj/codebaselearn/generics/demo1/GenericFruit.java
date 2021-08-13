@@ -82,7 +82,7 @@ public class GenericFruit {
 
         printMsg("111",222,"aaaa","2323.4",55.55);
 
-        List<String>[] lists = new List<String>[10];
+//        List<String>[] lists = new List<String>[10];
 
         List<?>[] ls = new ArrayList<?>[10];
         List<String>[] l = new ArrayList[10];
