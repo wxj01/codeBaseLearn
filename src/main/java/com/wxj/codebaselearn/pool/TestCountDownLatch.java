@@ -25,7 +25,7 @@ public class TestCountDownLatch {
                 new ThreadPoolExecutor.DiscardPolicy());
 
 
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i <1; i++){
             log.info("开始countDownLatch");
             CountDownLatch countDownLatch = new CountDownLatch(99);
             int num = 0;
