@@ -1,8 +1,6 @@
 package com.wxj.codebaselearn.ms;
 
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.LockSupport;
+import java.util.concurrent.*;
 
 /**
  * @author wxj
@@ -18,7 +16,25 @@ import java.util.concurrent.locks.LockSupport;
  */
 public class CountDownLatchDemo {
     public static void main(String[] args) throws Exception {
-        closeDoor();
+
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(20,
+                20,
+                2,
+                TimeUnit.SECONDS,
+                new LinkedBlockingQueue<>(Integer.MAX_VALUE),
+                Executors.defaultThreadFactory(),
+                new ThreadPoolExecutor.DiscardPolicy());
+
+        threadPoolExecutor.execute(()->{
+            try {
+                closeDoor1();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+//        closeDoor1();
+//        closeDoor();
     }
 
     /**
@@ -26,22 +42,28 @@ public class CountDownLatchDemo {
      *
      * @throws InterruptedException
      */
-    private static void closeDoor() throws InterruptedException {
-        CountDownLatch countDownLatch = new CountDownLatch(6);
+    private static void closeDoor1() throws InterruptedException {
 
-        for (int i = 1; i <= 6; i++) {
-            new Thread(() -> {
-                System.out.println(Thread.currentThread().getName() + "\t" + "上完自习");
-                try {
-                    TimeUnit.MINUTES.sleep(5);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                countDownLatch.countDown();
-            }, String.valueOf(i)).start();
+        for (int j = 0; j< 3 ; j++){
+            CountDownLatch countDownLatch = new CountDownLatch(6);
+            for (int i = 1; i <= 6; i++) {
+                new Thread(() -> {
+                    System.out.println(Thread.currentThread().getName() + "\t" + "上完自习");
+                    try {
+                        TimeUnit.SECONDS.sleep(5);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    countDownLatch.countDown();
+                }, String.valueOf(i)).start();
+            }
+
+            countDownLatch.await();
+            System.out.println(Thread.currentThread().getName() + "\t班长锁门离开教室");
         }
-        countDownLatch.await();
-        System.out.println(Thread.currentThread().getName() + "\t班长锁门离开教室");
+
+
+
 
 
 //        new Thread(()->{}).join(1000);
@@ -51,16 +73,21 @@ public class CountDownLatchDemo {
     }
 
 
-//    private static void closeDoor() throws InterruptedException {
-//        CountDownLatch countDownLatch = new CountDownLatch(6);
-//        for (int i = 1; i <= 6; i++) {
-//            new Thread(() -> {
-//                System.out.println(Thread.currentThread().getName() + "\t" + "上完自习");
-//                countDownLatch.countDown();
-//            }, String.valueOf(i)).start();
-//        }
-//        countDownLatch.await();
-//        System.out.println(Thread.currentThread().getName() + "\t班长锁门离开教室");
-//    }
+    private static void closeDoor() throws InterruptedException {
+        CountDownLatch countDownLatch = new CountDownLatch(100);
+        for (int i = 1; i <= 100; i++) {
+            new Thread(() -> {
+                System.out.println(Thread.currentThread().getName() + "\t" + "上完自习");
+                try {
+                    TimeUnit.SECONDS.sleep(5);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                countDownLatch.countDown();
+            }, String.valueOf(i)).start();
+        }
+        countDownLatch.await();
+        System.out.println(Thread.currentThread().getName() + "\t班长锁门离开教室");
+    }
 
 }

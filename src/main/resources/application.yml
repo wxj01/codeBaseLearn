@@ -1,9 +1,9 @@
 server:
   port: 8888
 
-spring:
-  redis:
-    url: 192.168.181.128:6379
+#spring:
+#  redis:
+#    url: 192.168.181.128:6379
 
   rabbitmq:
     host: localhost
@@ -14,3 +14,13 @@ spring:
       simple:
         default-requeue-rejected: false
         acknowledge-mode: manual
+
+# 异步线程配置
+async:
+  executor:
+    thread:
+      core_pool_size : 5   # 配置核心线程数
+      max_pool_size : 5    # 配置最大线程数
+      queue_capacity : 99999  # 配置队列大小
+      prefix : async-service- # 配置线程池中的线程的名称前缀
+

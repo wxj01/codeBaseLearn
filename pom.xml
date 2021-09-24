@@ -17,16 +17,24 @@
         <java.version>1.8</java.version>
     </properties>
     <dependencies>
+
+
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>2.1.4</version>-->
+<!--        </dependency>-->
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-test</artifactId>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -36,11 +44,20 @@
             <artifactId>spring-beans</artifactId>
         </dependency>
 <!--        这里引入activemq-all自带的包和我项目的spring包冲突了，我在测试spirng 的循环依赖的时候直接报错了，jar 冲突了 -->
+
 <!--        <dependency>-->
 <!--            <groupId>org.apache.activemq</groupId>-->
 <!--            <artifactId>activemq-all</artifactId>-->
 <!--            <version>5.15.11</version>-->
 <!--        </dependency>-->
+
+<!--        <dependency>-->
+<!--            <groupId>com.rabbitmq</groupId>-->
+<!--            <artifactId>amqp-client</artifactId>-->
+<!--            <version>5.7.1</version>-->
+<!--        </dependency>-->
+
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
@@ -66,11 +83,16 @@
             <version>2.4.5</version>
         </dependency>
 
-        <!-- spring2.X集成redis所需common-pool2-->
 <!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-pool2</artifactId>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-amqp</artifactId>-->
+<!--            <version>2.4.5</version>-->
 <!--        </dependency>-->
+        <!-- spring2.X集成redis所需common-pool2-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
 
 <!--        测试jedis 的功能-->
 <!--        <dependency>-->
@@ -78,6 +100,23 @@
 <!--            <artifactId>jedis</artifactId>-->
 <!--            <version>3.6.0</version>-->
 <!--        </dependency>-->
+
+
+        <dependency>
+            <groupId>net.sf.jxls</groupId>
+            <artifactId>jxls-core</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sourceforge.jexcelapi</groupId>
+            <artifactId>jxl</artifactId>
+            <version>2.6.10</version>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -85,6 +124,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>2.4.5</version>
             </plugin>
         </plugins>
     </build>
