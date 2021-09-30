@@ -27,5 +27,9 @@ public class TestInteger {
         log.info("aaa:"+aaa); //aaa:null
         log.info("bbb:"+bbb);//bbb:null
 
+        map.put("abc",1);
+
+
+
     }
 }
