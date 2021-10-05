@@ -11,7 +11,7 @@ import java.util.concurrent.*;
  * @date 2021/9/7 0007 13:19
  */
 @Slf4j
-public class TestCountDownLatch {
+public class TestCountDownLatch2 {
 
     public static void main(String[] args) {
 
@@ -22,28 +22,35 @@ public class TestCountDownLatch {
                 new LinkedBlockingQueue<>(Integer.MAX_VALUE),
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.DiscardPolicy());
-        threadPoolExecutor.execute(()->{
-            for(int i = 0; i <3; i++){
+        int num = 10;
+        for(int i = 0; i <3; i++){
+            num += i;
+            CountDownLatch countDownLatch = new CountDownLatch(num);
 
-            CountDownLatch countDownLatch = new CountDownLatch(99);
-            for (int j = 1; j <= 99;j++){
-                countDownLatch.countDown();
-                log.info("输出countDown 的值："+countDownLatch.getCount());
-//                try {
-//                    TimeUnit.SECONDS.sleep(1);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+            for (int j = 1; j <= countDownLatch.getCount();j++){
+                threadPoolExecutor.execute(()->{
+                   log.info("线程开始执行");
+                try {
+                    TimeUnit.SECONDS.sleep(2);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                 countDownLatch.countDown();
+
+
+                });
             }
+
             try {
                 countDownLatch.await();
-                log.info("开始countDownLatch");
+                log.info("主线程被唤醒执行xxxx");
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
 
         }
-        });
+
+
 
 
 //        for(int i = 0; i <1; i++){
