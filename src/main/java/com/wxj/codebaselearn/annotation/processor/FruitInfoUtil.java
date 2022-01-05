@@ -1,6 +1,6 @@
 package com.wxj.codebaselearn.annotation.processor;
 
-import com.wxj.codebaselearn.annotation.userdefined.FriutColor;
+import com.wxj.codebaselearn.annotation.userdefined.FruitColor;
 import com.wxj.codebaselearn.annotation.userdefined.FruitName;
 import com.wxj.codebaselearn.annotation.userdefined.FruitProvider;
 
@@ -26,9 +26,9 @@ public class FruitInfoUtil {
                 FruitName fruitName = field.getAnnotation(FruitName.class);
                 strFruitName .append(fruitName.value()) ;
                 System.out.println(strFruitName);
-            }else if(field.isAnnotationPresent(FriutColor.class)){
-                FriutColor friutColor = field.getAnnotation(FriutColor.class);
-                strFruitColor.append(friutColor.fruitColor());
+            }else if(field.isAnnotationPresent(FruitColor.class)){
+                FruitColor fruitColor = field.getAnnotation(FruitColor.class);
+                strFruitColor.append(fruitColor.fruitColor());
                 System.out.println(strFruitColor);
             }else if(field.isAnnotationPresent(FruitProvider.class)){
                 FruitProvider fruitProvider = field.getAnnotation(FruitProvider.class);

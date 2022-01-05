@@ -11,7 +11,7 @@ import java.lang.annotation.*;
 @Target(ElementType.FIELD)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface FriutColor {
+public @interface FruitColor {
     
     /** 
      * @description: 颜色

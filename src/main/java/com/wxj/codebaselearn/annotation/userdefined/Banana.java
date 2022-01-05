@@ -11,7 +11,7 @@ public class Banana {
     @FruitName("Banana")
     private String bananaName;
 
-    @FriutColor(fruitColor = FriutColor.Color.YELLOW)
+    @FruitColor(fruitColor = FruitColor.Color.YELLOW)
     private String bananaColor;
 
     @FruitProvider(id = 1,name = "北京旺旺",address = "酒仙桥")
