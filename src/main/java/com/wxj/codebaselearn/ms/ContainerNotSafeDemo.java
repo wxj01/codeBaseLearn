@@ -1,6 +1,5 @@
 package com.wxj.codebaselearn.ms;
 
-import org.omg.CORBA.OBJ_ADAPTER;
 
 import java.util.*;
 
