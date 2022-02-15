@@ -126,6 +126,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
+<!--        Java对象内存布局查看工具-JOL-->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.16</version>
+        </dependency>
 
     </dependencies>
 
