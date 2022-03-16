@@ -24,3 +24,5 @@ async:
       queue_capacity : 99999  # 配置队列大小
       prefix : async-service- # 配置线程池中的线程的名称前缀
 
+logging:
+  level: debug
